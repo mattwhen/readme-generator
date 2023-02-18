@@ -1,9 +1,12 @@
 // TODO: Include packages needed for this application
 const fs = require('fs'); 
 const inquirer = require('inquirer');
+
 // TODO: Create a function to write README file
-function writeToFile() {
-// TODO: Create an array of questions for user input
+
+// TODO: Create a function to initialize app
+function init() {
+// Use the inquirer package to prompt the user with questions and save responses.
 const questions = [
     {
         type: 'input',
@@ -16,7 +19,34 @@ const questions = [
         name: 'description',
     },
     {
-        type: 
+        type: 'input',
+        message: 'Please specifiy the installation instructions: ',
+        name: 'userInstructions',
+    },
+    {
+        type: 'input',
+        message: 'Please describe the usage information: ',
+        name: 'usageInfo',
+    },
+    {
+        type: 'input',
+        message: 'How can users contribute to this project?',
+        name: 'contribute',
+    },
+    {
+        type: 'input',
+        message: 'Please list the test instructions',
+        name: 'testInstruction',
+    },
+    {
+        type: 'input',
+        message: 'Please provide your Github username so collaborators can reach you: ',
+        name: 'githubUser',
+    },
+    {
+        type: 'input',
+        message: 'Please provide your email here: ',
+        name: 'userEmail',
     },
     {
         type: 'list',
@@ -36,36 +66,36 @@ const questions = [
     .then((data) => {
     // Add the headers along with the user's input in the README file
     const content = // Start of README content.
-    /* Ask the user for input for the following sections: 
-    Description 
-    Installation instructions
-    Usage information
-    Contribution guideline
-    Test instructions */
-`https://img.shields.io/badge/badge-test-${data.badgeColor}
+`![ScreenShot](https://img.shields.io/badge/License-${data.choices}-${data.badgeColor})
 # Project Title
 ${data.projectTitle} <br>
+## Table of contents <br>
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributions](#contributions)]
 ## Description 
 ${data.description} <br>
+## Installation 
+${data.userInstructions} <br>
+## Usage  
+${data.usageInfo} <br>
+## Contributions
+${data.contribute} <br>
+## Testing 
+${data.testInstruction} <br>
 ## License
-${data.license}`;
+This license is covered under the ${data.license} license. <br>
+## Questions
+Have any questions or concerns? Reach me at https://github.com/${data.githubUser}
+Email me at: ${data.userEmail}` 
 
+    // Write data to a readme file
     fs.writeFile('README.md', content, (error) =>  
-        error ? console.error(error) : console.log('Success!'));
+    error ? console.error(error) : console.log('Success!'));
+
     });
-
 };
-// // TODO: Create a function to initialize app
-// function init() {
+// Function call to initialize app
+init();
 
-
-
-
-
-//     writeToFile(content); 
-// }
-
-// // Function call to initialize app
-// init();
-
-writeToFile();
