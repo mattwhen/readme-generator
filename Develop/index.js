@@ -1,10 +1,10 @@
-// TODO: Include packages needed for this application
+// Include packages needed for this application
 const fs = require('fs'); 
 const inquirer = require('inquirer');
 
-// TODO: Create a function to write README file
 
-// TODO: Create a function to initialize app
+
+
 function init() {
 // Use the inquirer package to prompt the user with questions and save responses.
 const questions = [
@@ -60,20 +60,23 @@ const questions = [
         name: 'badgeColor',
     },
 ];
-    // Call the inquirer
+    // Call the inquirer function
     inquirer 
-    .prompt(questions) // Prompts users with questions and takes user input
+    .prompt(questions) // Prompts users with questions and takes user input and writes it into the README file.
     .then((data) => {
-    // Add the headers along with the user's input in the README file
-    const content = // Start of README content.
-`![ScreenShot](https://img.shields.io/badge/License-${data.choices}-${data.badgeColor})
+    const content = 
+    // Start of README content utilizing template literal.
+`![ScreenShot](https://img.shields.io/badge/License-${data.license}-${data.badgeColor})
 # Project Title
 ${data.projectTitle} <br>
 ## Table of contents <br>
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contributions](#contributions)]
+* [Contributions](#contributions)
+* [Testing](#testing)
+* [License](#license)
+* [Questions](#questions)
 ## Description 
 ${data.description} <br>
 ## Installation 
@@ -91,10 +94,11 @@ Have any questions or concerns? Reach me at https://github.com/${data.githubUser
 Email me at: ${data.userEmail}` 
 
     // Write data to a readme file
-    fs.writeFile('README.md', content, (error) =>  
+    fs.writeFile('README_Demo.md', content, (error) =>  
     error ? console.error(error) : console.log('Success!'));
 
-    });
+    return data;
+}); 
 };
 // Function call to initialize app
 init();
