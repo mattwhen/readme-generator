@@ -29,9 +29,9 @@ Lorem Ipsum Generator for user responses during project demo:
 https://loremipsum.io/generator/?n=1&t=s 
 <br><br>
 
-## <b>Screenshot of live demo<b>
+## <b>Live demo<b>
 <br>
 
 ## <b>Deployed link to application:
-
+https://github.com/mattwhen/readme-generator 
 
