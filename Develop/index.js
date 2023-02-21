@@ -94,7 +94,7 @@ Have any questions or concerns? Reach me at https://github.com/${data.githubUser
 Email me at: ${data.userEmail}` 
 
     // Write data to a readme file
-    fs.writeFile('README_Demo.md', content, (error) =>  
+    fs.writeFile('README_Gen.md', content, (error) =>  
     error ? console.error(error) : console.log('Success!'));
 
     return data;
